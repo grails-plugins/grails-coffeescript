@@ -1,8 +1,8 @@
 class CoffeescriptGrailsPlugin {
     // the plugin version
-    def version = "0.1"
+    def version = "0.1-SNAPSHOT"
     // the version or versions of Grails the plugin is designed for
-    def grailsVersion = "1.3.6 > *"
+    def grailsVersion = "1.3 > *"
     // the other plugins this plugin depends on
     def dependsOn = [:]
     // resources that are excluded from plugin packaging
@@ -11,11 +11,11 @@ class CoffeescriptGrailsPlugin {
     ]
 
     // TODO Fill in these fields
-    def author = "Your name"
+    def author = "Jeff Brown"
     def authorEmail = ""
-    def title = "Plugin summary/headline"
+    def title = "CoffeeScript Plugin For Grails"
     def description = '''\\
-Brief description of the plugin.
+The CoffeeScript plugin for Grails provides CoffeeScript integration.
 '''
 
     // URL to the plugin's documentation
