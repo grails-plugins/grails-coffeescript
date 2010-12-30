@@ -6,10 +6,10 @@ class CoffeeTagLib {
     
     def inline = { attrs, body ->
         if(!pageScope.variables.alreadyIncludedCoffeeJs) {
-            out << g.render(template: '/templates/coffeeScriptJs')
+            out << g.render(plugin: 'coffeescript', template: '/templates/coffeeScriptJs')
             pageScope.alreadyIncludedCoffeeJs = true
         }
         def code = body()
-        out << g.render(template: '/templates/inlineCoffeeScript', model: [coffeeScriptCode: code])
+        out << g.render(plugin: 'coffeescript', template: '/templates/inlineCoffeeScript', model: [coffeeScriptCode: code])
     }
 }
