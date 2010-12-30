@@ -8,7 +8,8 @@ class CoffeescriptGrailsPlugin {
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
             "grails-app/views/error.gsp",
-            "grails-app/views/demo/*"
+            "grails-app/views/demo/*",
+            "src/coffee/**"
     ]
 
     // TODO Fill in these fields
