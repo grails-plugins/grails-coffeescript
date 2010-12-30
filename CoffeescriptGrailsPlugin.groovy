@@ -30,7 +30,6 @@ The CoffeeScript plugin for Grails provides CoffeeScript integration.
         def source = event.source
         if(source instanceof org.springframework.core.io.FileSystemResource &&
             (source.file.name.endsWith('.coffee'))) {
-                // This is very much POC at this point...
             try {
                 def grailsSettings = BuildSettingsHolder.settings
                 def resourcesDir = grailsSettings.resourcesDir
