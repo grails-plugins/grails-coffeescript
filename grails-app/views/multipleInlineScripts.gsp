@@ -1,0 +1,10 @@
+<html>
+<head>
+</head>
+<body>
+    <coffee:inline></coffee:inline>
+    <coffee:inline></coffee:inline>
+    <coffee:inline></coffee:inline>
+    <coffee:inline></coffee:inline>
+</body>
+</html>

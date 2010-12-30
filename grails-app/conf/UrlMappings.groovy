@@ -6,7 +6,8 @@ class UrlMappings {
 				// apply constraints here
 			}
 		}
-
+        "/addition"(view: '/math/addition')
+        "/multipleInlineScripts"(view: '/multipleInlineScripts')
 		"/"(view:"/index")
 		"500"(view:'/error')
 	}
