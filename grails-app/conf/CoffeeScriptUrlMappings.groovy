@@ -1,7 +1,7 @@
 class CoffeeScriptUrlMappings {
 
 	static mappings = {
-	    "/generatedJavascript/$fileName" {
+	    "/js/coffeescriptGenerated/$fileName" {
 	        controller = 'coffeeScript'
 	        action = 'generatedJavascript'
 	    }

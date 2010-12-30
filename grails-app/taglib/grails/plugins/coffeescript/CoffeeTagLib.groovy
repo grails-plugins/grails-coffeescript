@@ -16,7 +16,8 @@ class CoffeeTagLib {
     
     def script = { attrs ->
         def name = attrs.name
-        def uri = g.createLink(controller: 'coffeeScript', action: 'generatedJavascript', params: [fileName: name])
+        def uri = g.createLink(controller: 'coffeeScript', action: 'generatedJavascript', params: [fileName: "${name}.js"])
+        uri = g.resource(dir:'js/coffeescriptGenerated', file: "${name}.js")
         out << g.render(plugin: 'coffeescript', template: '/templates/coffeeScriptJs', model: [uri: uri])
     }
 }

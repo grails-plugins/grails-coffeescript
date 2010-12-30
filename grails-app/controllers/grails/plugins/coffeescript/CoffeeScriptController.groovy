@@ -4,7 +4,7 @@ class CoffeeScriptController {
 
     def generatedJavascript = {
         def fileName = params.fileName
-        def pathToResource = "/generated-coffeescript/${fileName}.js"
+        def pathToResource = "/js/coffeescriptGenerated/${fileName}.js"
         def istream = CoffeeScriptController.getResourceAsStream(pathToResource)
         if(istream) {
             response.contentType = 'text/javascript'
