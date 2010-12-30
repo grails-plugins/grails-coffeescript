@@ -1,0 +1,23 @@
+The plugin compiles the @.coffee@ files which are defined under @src/coffee/@ to JavaScript using the @coffee@ compiler.  By default
+the plugin will use the @coffee@ compiler which is on the PATH at build time.  You may override this behavior by assigning a value
+to the @grails.coffeescript.compiler.location@ system property at build time.
+
+{code}
+grails -Dgrails.coffeescript.compiler.location=/opt/node/bin/coffee run-app
+{code}
+
+Another option is to assign a value to the @grails.coffeescript.compiler.location@ property in
+@grails-app/conf/BuildConfig.groovy@.
+
+{code}
+// grails-app/conf/BuildConfig.groovy
+grails.coffeescript.compiler.location='/opt/node/bin/coffee'
+{code}
+
+The order of preference is the system property, followed by the @BuildConfig@ property and finally the compiler
+found on the PATH.
+
+{note}
+The compiler is only needed when compiling @.coffee@ files under @src/coffee/@.  If the application does not
+define any of those and is only using inline CoffeeScript, the compiler is not needed.
+{note}
