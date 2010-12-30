@@ -1,3 +1,5 @@
+import grails.util.BuildSettingsHolder
+
 class CoffeescriptGrailsPlugin {
     // the plugin version
     def version = "1.0-SNAPSHOT"
@@ -11,6 +13,7 @@ class CoffeescriptGrailsPlugin {
             "grails-app/views/demo/*",
             "src/coffee/**"
     ]
+    def watchedResources = "file:./src/coffee/*.coffee"
 
     // TODO Fill in these fields
     def author = "Jeff Brown"
@@ -23,30 +26,19 @@ The CoffeeScript plugin for Grails provides CoffeeScript integration.
     // URL to the plugin's documentation
     def documentation = "http://grails.org/plugin/coffeescript"
 
-    def doWithWebDescriptor = { xml ->
-        // TODO Implement additions to web.xml (optional), this event occurs before 
-    }
-
-    def doWithSpring = {
-        // TODO Implement runtime spring config (optional)
-    }
-
-    def doWithDynamicMethods = { ctx ->
-        // TODO Implement registering dynamic methods to classes (optional)
-    }
-
-    def doWithApplicationContext = { applicationContext ->
-        // TODO Implement post initialization spring config (optional)
-    }
-
     def onChange = { event ->
-        // TODO Implement code that is executed when any artefact that this plugin is
-        // watching is modified and reloaded. The event contains: event.source,
-        // event.application, event.manager, event.ctx, and event.plugin.
-    }
-
-    def onConfigChange = { event ->
-        // TODO Implement code that is executed when the project configuration changes.
-        // The event is the same as for 'onChange'.
+        def source = event.source
+        if(source instanceof org.springframework.core.io.FileSystemResource &&
+            (source.file.name.endsWith('.coffee'))) {
+                // This is very much POC at this point...
+            try {
+                def resourcesDir = BuildSettingsHolder.settings.resourcesDir
+                def proc = "coffee -c -o ${resourcesDir}/generated-coffeescript/ ${source.file.absolutePath}".execute()
+                proc.in.eachLine { println it}
+                proc.err.eachLine { System.err.println(it) }
+            } catch (e) {
+                System.err.println("ERROR Launching CoffeeScript compiler: ${e.message}")
+            }
+        }
     }
 }
