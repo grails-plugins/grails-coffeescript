@@ -1,5 +1,4 @@
 eventCompileEnd = { binding ->
-    // This is very much POC at this point...
     try {
         coffeeSrcDir = new File(basedir, 'src/coffee')
         if(coffeeSrcDir.exists()) {

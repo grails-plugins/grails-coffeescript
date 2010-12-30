@@ -1,6 +1,6 @@
 <html>
 <head>
-    <coffee:script name="math"/>
+    <coffee:js name="math"/>
 </head>
 <body>
     <form name="multiplicationForm">

@@ -85,3 +85,7 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+grails.doc.authors = 'Jeff Brown'
+grails.doc.license = 'Apache License 2.0'
+grails.doc.title = 'CoffeeScript Plugin'

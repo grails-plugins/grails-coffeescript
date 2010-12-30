@@ -1,0 +1,20 @@
+The plugin provides support for embedding CoffeeScript code directly in a GSP page using the @inline@ GSP tag which
+is defined in the @coffee@ namespace.  
+
+{code}
+<html>
+<body>
+    <coffee:inline>
+        window.addNumbers = (x, y) -> result = Number(x) + Number(y);
+        msg = x + " + " + y + " is " + result;
+        document.all.result.innerText = msg
+    </coffee:inline>
+    <form name="additionForm">
+        X = <g:textField name="x" value="" />,
+        Y = <g:textField name="y" value="" />
+        <input type="button" value="Add" onclick="addNumbers(x.value, y.value)" />
+    </form>
+    <div id="result"></div>
+</body>
+</html>
+{code}

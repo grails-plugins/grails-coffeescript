@@ -1,1 +1,4 @@
 The CoffeeScript plugin provides support for taking advantage of CoffeeScript in a Grails application.
+
+This document describes the CoffeeScript integration options in a Grails application.  For details about
+the CoffeeScript language and general usage see [jashkenas.github.com/coffee-script/|http://jashkenas.github.com/coffee-script/].
