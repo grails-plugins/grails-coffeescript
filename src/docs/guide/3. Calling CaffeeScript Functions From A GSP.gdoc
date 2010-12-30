@@ -1,0 +1,22 @@
+The plugin provides a custom GSP tag for pulling a compiled CoffeeScript library into a page.  Note
+that what is being pulled in to the page is the compiled JavaScript, not the CoffeeScript.
+
+{code}
+<html>
+<head>
+    <coffee:js name="math"/>
+</head>
+<body>
+    <form name="multiplicationForm">
+        X = <g:textField name="x" value="" />,
+        Y = <g:textField name="y" value="" />
+        <input type="button" value="Multiply" onclick="document.all.result.innerText=multiplyNumbers(x.value, y.value)" />
+    </form>
+    <div id="result"></div>
+</body>
+</html>
+{code}
+
+The @js@ tag in the @coffee@ namespace requires that a value be assigned to the @name@ attribute
+which should correspond to the name of a @.coffee@ file which is defined under 
+@src/coffee/@.  The name should not include the @.coffee@ or @.js@ extension.

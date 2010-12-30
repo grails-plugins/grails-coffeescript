@@ -1,0 +1,16 @@
+CoffeeScript functions may be defined in .coffee files under @src/coffee/@.  A simple
+example:
+
+{code}
+// src/coffee/math.coffee
+window.multiplyNumbers = (x, y) -> result = x * y;
+msg = x + " * " + y + " is " + result;
+return msg
+{code}
+
+All CoffeeScript source files should be defined under @src/coffee/@ and should have the
+@.coffee@ extension.
+
+At build time all of the @.coffee@ files will be compiled to JavaScript using the @coffee@ compiler
+which must be available at build time.  The Grails application will have no runtime dependency
+on the compiler.
