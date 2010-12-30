@@ -32,8 +32,16 @@ The CoffeeScript plugin for Grails provides CoffeeScript integration.
             (source.file.name.endsWith('.coffee'))) {
                 // This is very much POC at this point...
             try {
-                def resourcesDir = BuildSettingsHolder.settings.resourcesDir
-                def proc = "coffee -c -o ${resourcesDir}/js/coffeescriptGenerated/ ${source.file.absolutePath}".execute()
+                def grailsSettings = BuildSettingsHolder.settings
+                def resourcesDir = grailsSettings.resourcesDir
+                def coffeeCompilerLocation = System.getProperty('grails.coffeescript.compiler.location')
+                if(!coffeeCompilerLocation) {
+                    coffeeCompilerLocation = grailsSettings.config.grails.coffeescript.compiler.location
+                    if(!coffeeCompilerLocation) {
+                        coffeeCompilerLocation = 'coffee'
+                    }
+                }
+                def proc = "${coffeeCompilerLocation} -c -o ${resourcesDir}/js/coffeescriptGenerated/ ${source.file.absolutePath}".execute()
                 proc.in.eachLine { println it}
                 proc.err.eachLine { System.err.println(it) }
             } catch (e) {
