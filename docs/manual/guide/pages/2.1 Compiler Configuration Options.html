@@ -1,18 +1,11 @@
 <html>
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-        <title>2. Defining CoffeeScript Functions</title>
+        <title>2.1 Compiler Configuration Options</title>
         <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
     </head>
     <body class="body">
-    <h1><a name="2. Defining CoffeeScript Functions">2. Defining CoffeeScript Functions</a></h1>CoffeeScript functions may be defined in .coffee files under <code>src/coffee/</code>.  A simple
-example:<p class="paragraph"/><div class="code"><pre>// src/coffee/math.coffee
-window.multiplyNumbers = (x, y) &#45;&#62; result = x &#42; y;
-msg = x + <span class="java&#45;quote">" &#42; "</span> + y + <span class="java&#45;quote">" is "</span> + result;
-<span class="java&#45;keyword">return</span> msg</pre></div><p class="paragraph"/>All CoffeeScript source files should be defined under <code>src/coffee/</code> and should have the
-<code>.coffee</code> extension.<p class="paragraph"/>At build time all of the <code>.coffee</code> files will be compiled to JavaScript using the <code>coffee</code> compiler
-which must be available at build time.  The Grails application will have no runtime dependency
-on the compiler.<h2><a name="2.1 Compiler Configuration Options">2.1 Compiler Configuration Options</a></h2>The plugin compiles the <code>.coffee</code> files which are defined under <code>src/coffee/</code> to JavaScript using the <code>coffee</code> compiler.  By default
+    The plugin compiles the <code>.coffee</code> files which are defined under <code>src/coffee/</code> to JavaScript using the <code>coffee</code> compiler.  By default
 the plugin will use the <code>coffee</code> compiler which is on the PATH at build time.  You may override this behavior by assigning a value
 to the <code>grails.coffeescript.compiler.location</code> system property at build time.<p class="paragraph"/><div class="code"><pre>grails &#45;Dgrails.coffeescript.compiler.location=/opt/node/bin/coffee run&#45;app</pre></div><p class="paragraph"/>Another option is to assign a value to the <code>grails.coffeescript.compiler.location</code> property in
 <code>grails-app/conf/BuildConfig.groovy</code>.<p class="paragraph"/><div class="code"><pre>// grails&#45;app/conf/BuildConfig.groovy

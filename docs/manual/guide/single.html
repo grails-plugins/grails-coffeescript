@@ -23,7 +23,7 @@
 
         <div id="toc">
             <h2>Table of Contents</h2>
-            <div class="tocItem" style="margin-left:0px"><a href="#1. Introduction To The CoffeeScript Plugin">1. Introduction To The CoffeeScript Plugin</a></div><div class="tocItem" style="margin-left:0px"><a href="#2. Defining CoffeeScript Functions">2. Defining CoffeeScript Functions</a></div><div class="tocItem" style="margin-left:0px"><a href="#3. Calling CaffeeScript Functions From A GSP">3. Calling CaffeeScript Functions From A GSP</a></div><div class="tocItem" style="margin-left:0px"><a href="#4. Defining Inline CoffeeScript">4. Defining Inline CoffeeScript</a></div>
+            <div class="tocItem" style="margin-left:0px"><a href="#1. Introduction To The CoffeeScript Plugin">1. Introduction To The CoffeeScript Plugin</a></div><div class="tocItem" style="margin-left:0px"><a href="#2. Defining CoffeeScript Functions">2. Defining CoffeeScript Functions</a></div><div class="tocItem" style="margin-left:10px"><a href="#2.1 Compiler Configuration Options">2.1 Compiler Configuration Options</a></div><div class="tocItem" style="margin-left:0px"><a href="#3. Calling CaffeeScript Functions From A GSP">3. Calling CaffeeScript Functions From A GSP</a></div><div class="tocItem" style="margin-left:0px"><a href="#4. Defining Inline CoffeeScript">4. Defining Inline CoffeeScript</a></div>
         </div>
         <div id="content">
             <h1><a name="1. Introduction To The CoffeeScript Plugin">1. Introduction To The CoffeeScript Plugin</a></h1>The CoffeeScript plugin provides support for taking advantage of CoffeeScript in a Grails application.<p class="paragraph"/>This document describes the CoffeeScript integration options in a Grails application.  For details about
@@ -35,7 +35,15 @@ msg = x + <span class="java&#45;quote">" &#42; "</span> + y + <span class="java&
 <span class="java&#45;keyword">return</span> msg</pre></div><p class="paragraph"/>All CoffeeScript source files should be defined under <code>src/coffee/</code> and should have the
 <code>.coffee</code> extension.<p class="paragraph"/>At build time all of the <code>.coffee</code> files will be compiled to JavaScript using the <code>coffee</code> compiler
 which must be available at build time.  The Grails application will have no runtime dependency
-on the compiler.<h1><a name="3. Calling CaffeeScript Functions From A GSP">3. Calling CaffeeScript Functions From A GSP</a></h1>The plugin provides a custom GSP tag for pulling a compiled CoffeeScript library into a page.  Note
+on the compiler.<h2><a name="2.1 Compiler Configuration Options">2.1 Compiler Configuration Options</a></h2>The plugin compiles the <code>.coffee</code> files which are defined under <code>src/coffee/</code> to JavaScript using the <code>coffee</code> compiler.  By default
+the plugin will use the <code>coffee</code> compiler which is on the PATH at build time.  You may override this behavior by assigning a value
+to the <code>grails.coffeescript.compiler.location</code> system property at build time.<p class="paragraph"/><div class="code"><pre>grails &#45;Dgrails.coffeescript.compiler.location=/opt/node/bin/coffee run&#45;app</pre></div><p class="paragraph"/>Another option is to assign a value to the <code>grails.coffeescript.compiler.location</code> property in
+<code>grails-app/conf/BuildConfig.groovy</code>.<p class="paragraph"/><div class="code"><pre>// grails&#45;app/conf/BuildConfig.groovy
+grails.coffeescript.compiler.location='/opt/node/bin/coffee'</pre></div><p class="paragraph"/>The order of preference is the system property, followed by the <code>BuildConfig</code> property and finally the compiler
+found on the PATH.<p class="paragraph"/><blockquote class="note">
+The compiler is only needed when compiling <code>.coffee</code> files under <code>src/coffee/</code>.  If the application does not
+define any of those and is only using inline CoffeeScript, the compiler is not needed.
+</blockquote><h1><a name="3. Calling CaffeeScript Functions From A GSP">3. Calling CaffeeScript Functions From A GSP</a></h1>The plugin provides a custom GSP tag for pulling a compiled CoffeeScript library into a page.  Note
 that what is being pulled in to the page is the compiled JavaScript, not the CoffeeScript.<p class="paragraph"/><div class="code"><pre>&#60;html&#62;
 &#60;head&#62;
     &#60;coffee:js name=<span class="java&#45;quote">"math"</span>/&#62;
