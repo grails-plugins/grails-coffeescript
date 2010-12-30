@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>4. Defining Inline CoffeeScript</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    <h1><a name="4. Defining Inline CoffeeScript">4. Defining Inline CoffeeScript</a></h1>The plugin provides support for embedding CoffeeScript code directly in a GSP page using the <code>inline</code> GSP tag which
+is defined in the <code>coffee</code> namespace.<p class="paragraph"/><div class="code"><pre>&#60;html&#62;
+&#60;body&#62;
+    &#60;coffee:inline&#62;
+        window.addNumbers = (x, y) &#45;&#62; result = <span class="java&#45;object">Number</span>(x) + <span class="java&#45;object">Number</span>(y);
+        msg = x + <span class="java&#45;quote">" + "</span> + y + <span class="java&#45;quote">" is "</span> + result;
+        document.all.result.innerText = msg
+    &#60;/coffee:inline&#62;
+    &#60;form name=<span class="java&#45;quote">"additionForm"</span>&#62;
+        X = &#60;g:textField name=<span class="java&#45;quote">"x"</span> value=<span class="java&#45;quote">""</span> /&#62;,
+        Y = &#60;g:textField name=<span class="java&#45;quote">"y"</span> value=<span class="java&#45;quote">""</span> /&#62;
+        &#60;input type=<span class="java&#45;quote">"button"</span> value=<span class="java&#45;quote">"Add"</span> onclick=<span class="java&#45;quote">"addNumbers(x.value, y.value)"</span> /&#62;
+    &#60;/form&#62;
+    &#60;div id=<span class="java&#45;quote">"result"</span>&#62;&#60;/div&#62;
+&#60;/body&#62;
+&#60;/html&#62;</pre></div>
+    </body>
+</html>

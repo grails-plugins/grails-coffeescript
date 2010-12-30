@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>3. Calling CaffeeScript Functions From A GSP</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    <h1><a name="3. Calling CaffeeScript Functions From A GSP">3. Calling CaffeeScript Functions From A GSP</a></h1>The plugin provides a custom GSP tag for pulling a compiled CoffeeScript library into a page.  Note
+that what is being pulled in to the page is the compiled JavaScript, not the CoffeeScript.<p class="paragraph"/><div class="code"><pre>&#60;html&#62;
+&#60;head&#62;
+    &#60;coffee:js name=<span class="java&#45;quote">"math"</span>/&#62;
+&#60;/head&#62;
+&#60;body&#62;
+    &#60;form name=<span class="java&#45;quote">"multiplicationForm"</span>&#62;
+        X = &#60;g:textField name=<span class="java&#45;quote">"x"</span> value=<span class="java&#45;quote">""</span> /&#62;,
+        Y = &#60;g:textField name=<span class="java&#45;quote">"y"</span> value=<span class="java&#45;quote">""</span> /&#62;
+        &#60;input type=<span class="java&#45;quote">"button"</span> value=<span class="java&#45;quote">"Multiply"</span> onclick=<span class="java&#45;quote">"document.all.result.innerText=multiplyNumbers(x.value, y.value)"</span> /&#62;
+    &#60;/form&#62;
+    &#60;div id=<span class="java&#45;quote">"result"</span>&#62;&#60;/div&#62;
+&#60;/body&#62;
+&#60;/html&#62;</pre></div><p class="paragraph"/>The <code>js</code> tag in the <code>coffee</code> namespace requires that a value be assigned to the <code>name</code> attribute
+which should correspond to the name of a <code>.coffee</code> file which is defined under 
+<code>src/coffee/</code>.  The name should not include the <code>.coffee</code> or <code>.js</code> extension.
+    </body>
+</html>

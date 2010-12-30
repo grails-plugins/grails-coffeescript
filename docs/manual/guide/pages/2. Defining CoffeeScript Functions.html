@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>2. Defining CoffeeScript Functions</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    CoffeeScript functions may be defined in .coffee files under <code>src/coffee/</code>.  A simple
+example:<p class="paragraph"/><div class="code"><pre>// src/coffee/math.coffee
+window.multiplyNumbers = (x, y) &#45;&#62; result = x &#42; y;
+msg = x + <span class="java&#45;quote">" &#42; "</span> + y + <span class="java&#45;quote">" is "</span> + result;
+<span class="java&#45;keyword">return</span> msg</pre></div><p class="paragraph"/>All CoffeeScript source files should be defined under <code>src/coffee/</code> and should have the
+<code>.coffee</code> extension.<p class="paragraph"/>At build time all of the <code>.coffee</code> files will be compiled to JavaScript using the <code>coffee</code> compiler
+which must be available at build time.  The Grails application will have no runtime dependency
+on the compiler.
+    </body>
+</html>
